@@ -6,9 +6,12 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
+<nav th:replace="Components::navbar"/>
+
 <div class="jumbotron container">
-<h1 class="mx-auto" align="center">Registration Form</h1>
-<form method="get" action="/addStudent">
+<h1 class="mx-auto" align="center">Regissstration Form</h1>
+<form action="/addStudent">
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" name="name" id="name">
