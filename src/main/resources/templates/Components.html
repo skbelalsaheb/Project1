@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+<nav class="navbar navbar-expand-lg navbar-primary  bg-dark" th:fragment="navbar">
     <a class="navbar-brand" href="/">BCA</a>
     <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
             data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -41,15 +41,69 @@
             <li class="nav-item">
                 <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">Add Books</a>
             </li>  <li class="nav-item">
-                <a `aria-disabled="true" class="nav-link register" href="/books">View All Books</a>
-            </li>
+            <a `aria-disabled="true" class="nav-link register" href="/books">View All Books</a>
+        </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/search" method="get">
             <input aria-label="Search" class="form-control" name="search" placeholder="Search" type="search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search</button>
         </form>
     </div>
+    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Books</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/books" method="post">
+                        <div class="form-group">
+                            <label for="name">Book Name</label>
+                            <input type="text" class="form-control" name="bookName" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Author Name</label>
+                            <input type="text" class="form-control" name="authorName" id="department" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Books Content</label>
+                            <textarea type="text" class="form-control" name="content" id="content" cols="8" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Price</label>
+                            <input type="text" class="form-control" name="price" id="phone" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </nav>
+
+<!-- Footer Bottom -->
+<div class="footer-bottom border-top" th:fragment="footer">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12">
+                <!-- Copyright Area -->
+                <div class="copyright-area d-flex flex-wrap justify-content-center justify-content-sm-between text-center py-4">
+                    <!-- Copyright Left -->
+                    <div class="copyright-left">© Copyrights 2020 sApp All rights reserved.</div>
+                    <!-- Copyright Right -->
+                    <div class="copyright-right">Made with  By <a href="#">Theme Land</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
 
 <!-- Modal -->
 
