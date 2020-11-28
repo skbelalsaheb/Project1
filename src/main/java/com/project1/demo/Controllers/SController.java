@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -52,10 +53,15 @@ public class SController {
 
     @GetMapping("/search")
     public String Search(HttpServletRequest request, Model m){
-        String id = request.getParameter("search");
-        Books ob =booksRepo.findById(Integer.parseInt(id)).orElse(new Books());
+        String name = request.getParameter("search");
+        List <Books> ob = booksRepo.findByBookNameContains(name);
         m.addAttribute("data",ob);
         return "search";
+    }
+    @GetMapping("/delete/{id}")
+    public String DeleteBooks(@PathVariable("id") int id){
+        booksRepo.deleteById(id);
+        return "redirect:/books";
     }
 //    @RequestMapping("addStudent")
 //    public String addStudent(Student ob) {

@@ -1,19 +1,43 @@
 package com.project1.demo.Models;
 
+import com.sun.istack.NotNull;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Books {
 @Id
 @GeneratedValue
     private int id;
+@NotNull
 private String bookName;
+    @NotNull
 private String authorName;
+    @NotNull
     private String price;
+
+    @Lob
+    private String content;
+
+    @Override
+    public String toString() {
+        return "Books{" +
+                "id=" + id +
+                ", bookName='" + bookName + '\'' +
+                ", authorName='" + authorName + '\'' +
+                ", price='" + price + '\'' +
+                ", content='" + content + '\'' +
+                '}';
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public int getId() {
         return id;
@@ -48,13 +72,4 @@ private String authorName;
     }
 
 
-    @Override
-    public String toString() {
-        return "Books{" +
-                "id=" + id +
-                ", bookName='" + bookName + '\'' +
-                ", authorName='" + authorName + '\'' +
-                ", price='" + price + '\'' +
-                '}';
-    }
 }
