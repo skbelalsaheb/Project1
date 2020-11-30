@@ -5,7 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-primary  bg-dark" th:fragment="navbar">
     <a class="navbar-brand" href="/">BCA</a>
     <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
@@ -42,6 +41,11 @@
                 <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">Add Books</a>
             </li>  <li class="nav-item">
             <a `aria-disabled="true" class="nav-link register" href="/books">View All Books</a>
+        </li>
+            <li class="nav-item">
+                <a type="button" class="nav-link" data-toggle="modal" data-target="#exampleModal">Add Movies</a>
+            </li>  <li class="nav-item">
+            <a `aria-disabled="true" class="nav-link register" href="/movies">View All Movies</a>
         </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/search" method="get">
@@ -85,6 +89,44 @@
             </div>
         </div>
     </div>
+</nav>
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Add Movies</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/movies" method="post">
+                    <div class="form-group">
+                        <label for="name">Movie Name</label>
+                        <input type="text" class="form-control" name="movieName" id="moviename" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Year</label>
+                        <input type="text" class="form-control" name="year" id="year" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Movie Genre</label>
+                        <textarea type="text" class="form-control" name="genre" id="genre" cols="8" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Rating</label>
+                        <input type="text" class="form-control" name="rating" id="rating" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 </nav>
 
 <!-- Footer Bottom -->

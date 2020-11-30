@@ -1,19 +1,16 @@
 package com.project1.demo.Models;
-
 import com.sun.istack.NotNull;
-import org.springframework.web.bind.annotation.GetMapping;
-
 import javax.persistence.*;
 
-@Entity
-public class Books {
-@Id
-@GeneratedValue
+    @Entity
+    public class Books {
+    @Id
+    @GeneratedValue
     private int id;
-@NotNull
-private String bookName;
     @NotNull
-private String authorName;
+    private String bookName;
+    @NotNull
+    private String authorName;
     @NotNull
     private String price;
 
