@@ -2,9 +2,11 @@ package com.project1.demo.Models;
 
 import com.sun.istack.NotNull;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class Movies {
     @Id
     @GeneratedValue
