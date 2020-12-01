@@ -24,7 +24,7 @@ public class SController {
     @GetMapping("/")
     public String home(Model model)
     {
-        List<Integer> ob = List.of(1,2,3,4,5,6,7,8);
+        List<Integer> ob = List.of(1,2,3,4,5,6,7);
         model.addAttribute("name",ob);
         return "index";
     }
