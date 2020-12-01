@@ -1,7 +1,9 @@
 package com.project1.demo.Controllers;
 
 import com.project1.demo.Models.Books;
+import com.project1.demo.Models.Customer;
 import com.project1.demo.Service.BooksRepo;
+import com.project1.demo.Service.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,12 +28,7 @@ public class SController {
         model.addAttribute("name",ob);
         return "index";
     }
-    @GetMapping("register")
-    public String register()
-    {
-        System.out.println("ok");
-        return "register";
-    }
+
     @GetMapping("books")
     public String getBookController(Model model){
         ArrayList<Books> ob = (ArrayList<Books>) booksRepo.findAll();
@@ -56,21 +53,21 @@ public class SController {
         booksRepo.deleteById(id);
         return "redirect:/books";
     }
-//    @RequestMapping("addStudent")
-//    public String addStudent(Student ob) {
-//        System.out.println(ob);
-//        repo.save(ob);
-//        return "Submit";
-//    }
+    @Autowired
+    CustomerRepo customerRepo;
 
-   /* @RequestMapping("fetchComplain")
-    public ModelAndView addStudent(int id) {
-        Student ob = repo.findById(id).orElse(null);
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("Fetch");
-        mv.addObject("StudentData",ob);
-        return mv;
-    }*/
+   @GetMapping("register")
+    public String register()
+    {
+        System.out.println("ok");
+        return "register";
+    }
+    @PostMapping("/addCustomer")
+    public  String addCustomer(Customer ob){
+        customerRepo.save(ob);
+        return "index";
+    }
+//
 
 }
 
