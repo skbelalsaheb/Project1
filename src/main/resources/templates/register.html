@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        #snackbar {
+        .snackbar {
             visibility: hidden;
             min-width: 250px;
             margin-left: -125px;
@@ -22,9 +22,8 @@
             font-size: 17px;
         }
 
-        #snackbar.show {
+        .snackbar.show {
             visibility: visible;
-            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
             animation: fadein 0.5s, fadeout 0.5s 2.5s;
         }
 
@@ -55,7 +54,7 @@
 <body>
 <div class="jumbotron container">
 <h1 class="mx-auto" align="center">Sign Up</h1>
-<form action="/addCustomer" method="post">
+<form action="/addCustomer" method="post" id = "customerForm">
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" name="cname" id="name">
@@ -72,18 +71,21 @@
         <label for="email">Email Id.</label>
         <input type="text" class="form-control" name="email" id="email">
     </div>
-    <button type="submit" class="btn btn-primary" onclick="myFunction()">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 </div>
 </form>
-<div id="snackbar1">Done</div>
+<div id="snackbar1" class="snackbar">Done</div>
 <script>
-    function myFunction() {
-        let x = document.getElementById("snackbar1");
-        x.className = "show";
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-    }
+document.getElementById("customerForm").onsubmit=function(event){
+event.preventDefault();
+    var element = document.getElementById("snackbar1");
+    element.classList.add("show");
+// setTimeout(() => { console.log("World!"); }, 3000);
+    document.getElementById("customerForm").submit();
+
+}
 </script>
 <!-- jQuery and JS bundle w/ Popper.js -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
