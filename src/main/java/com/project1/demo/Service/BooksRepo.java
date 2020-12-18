@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BooksRepo extends JpaRepository<Books,Integer> {
-    public List<Books> findByBookNameContains(String name);
+    public List<Books> findAllByAuthorNameContaining(String name);
 }

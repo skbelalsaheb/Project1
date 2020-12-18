@@ -48,20 +48,20 @@ public class SController {
     @PostMapping("/books")
     public  String SaveBooks(Books ob){
         booksRepo.save(ob);
-        return "index";
+        return "redirect:/admin";
     }
 
     @GetMapping("/search")
     public String Search(HttpServletRequest request, Model m){
         String name = request.getParameter("search");
-        List <Books> ob = booksRepo.findByBookNameContains(name);
+        List <Books> ob = booksRepo.findAllByAuthorNameContaining(name);
         m.addAttribute("data",ob);
         return "search";
     }
     @GetMapping("/delete/{id}")
     public String DeleteBooks(@PathVariable("id") int id){
         booksRepo.deleteById(id);
-        return "redirect:/books";
+        return "redirect:/admin";
     }
 //    @RequestMapping("addStudent")
 //    public String addStudent(Student ob) {
